@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fash Rental Mauritius | Car Rental Service</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-car"></i>
+                FASH RENTAL
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#fleet">Our Fleet</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content animate">
+            <h1>SSR AIRPORT | FLIC EN FLAC | TAMARIN | GRAND BAIE MAURTIUS</h1>
+            <div class="search-box">
+                <form class="search-form">
+                    <div class="form-group">
+                        <i class="fas fa-calendar-alt">
+                        </i>
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="endDate" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="deliveryLocation" placeholder="Enter delivery location" required>
+                        <div id="map"></div>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i>
+                        Search Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="car-fleet" id="fleet">
+        <div class="section-title animate">
+            <h2>Our Reliable and Affordable Fleets</h2>
+            <p>Choose from our selection of vehicles</p>
+        </div>
+        <div class="cars-grid" id="car-list">
+
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-title animate">
+            <h2>Why Choose Us</h2>
+            <p>Discover the Fash Rental advantage</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate">
+                <i class="fas fa-ban feature-icon"></i>
+                <h3>NO DEPOSIT FEE REQUIRED </h3>
+                <i class="fas fa-infinity feature-icon"></i>
+                <h3>PLUS UNLIMITED DRIVING MILEAGE</h3>
+
+            </div>
+            <div class="feature-card animate">
+                <i class="fas fa-map-marker-alt feature-icon"></i>
+                <h3>Island-wide Coverage</h3>
+                <p>Free Delivery & Pickup at SSR Airport/Flic en Flac/Tamarin</p>
+                <p>15+ locations Delievery & Pickup (Only fuel Fee Charged)</p>
+            </div>
+            <div class="feature-card animate">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Full Insurance</h3>
+                <p>Premium Comprehensive coverage included</p>
+            </div>
+            <div class="feature-card animate">
+                <i class="fas fa-clock feature-icon"></i>
+                <h3>Support</h3>
+                <p>ASSISSTANCE IN ENGLISH & FRENCH</p>
+                <P>Plus 24/7 Towing Assistance</P>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +230 59040792</p>
+                <p><i class="fas fa-envelope"></i> RentACar@fashrental.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Petite Marie, Flic en Flac</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <input type="email" placeholder="Enter your email" class="btn">
+                    <button class="btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const cars = [
+            {
+                name: "Hyundai Grand i10",
+                price: "EUR 25/day",
+                features: ["Automatic", "Air Conditioning", "Unlimited Mileage", "No Deposit"],
+                image: "images/typhoon-silver_12.png"
+            },
+            {
+                name: "Hyundai Grand i10 Sedan",
+                price: "EUR 25/day",
+                features: ["Automatic", "Air Conditioning", "Unlimited Mileage", "No Deposit"],
+                image: "images/GAZ_da5dd42dd0a44ebdb9afa478a6c26376-1779173479.jpg"
+            },
+            {
+                name: "Suzuki Swift",
+                price: "EUR 30/day",
+                features: ["Automatic", "Air Conditioning", "Unlimited Mileage", "No Deposit"],
+                image: "images/SS1.jpg"
+            },
+            {
+                name: "Hyundai Grand i10 New Version",
+                price: "EUR 34/day",
+                features: ["Automatic", "Air Conditioning (Back)", "Unlimited Mileage", "No Deposit"],
+                image: "images/image5hhh.png"
+            },
+            {
+                name: "Suzuki Swift GLX",
+                price: "EUR 37/day",
+                features: ["Automatic", "Air Conditioning", "Unlimited Mileage", "No Deposit"],
+                image: "images/image53.png"
+            },
+            {
+                name: "Nissan Note Hybrid",
+                price: "EUR 40/day",
+                features: ["Automatic", "Air Conditioning", "Unlimited Mileage", "No Deposit"],
+                image: "images/nissan note.jpg"
+            }
+        ];
+
+        const carContainer = document.getElementById("car-list");
+
+        cars.forEach(car => {
+            const carCard = document.createElement("div");
+            carCard.classList.add("car-card", "animate");
+
+            carCard.innerHTML = `
+        <div class="car-image">
+            <img src="${car.image}" alt="${car.name}">
+        </div>
+        <div class="car-details">
+            <h3 class="car-title">${car.name}</h3>
+            <div class="car-price">${car.price}</div>
+            <ul class="car-features">
+                ${car.features.map(feature => `<li>${feature}</li>`).join("")}
+            </ul>
+            <button class="btn" onclick="openWhatsApp('${car.name}', '${car.price}', '${car.features}')">Book Now</button>
+        </div>
+    `;
+
+            carContainer.appendChild(carCard);
+        });
+
+
+        function openWhatsApp(carName, price, features) {
+            var phoneNumber = "+23059040792"; // Replace with actual number
+
+            // Message format
+            var message = `Hello am interested in a: \n\n*Car Booking Request* \n*Car:* ${carName}\n*Price:* ${price}\n*Features:* ${features}\n`;
+
+            // WhatsApp API link
+            var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+
+            // Open WhatsApp
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+
+</html>
